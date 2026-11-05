@@ -1,1 +1,1039 @@
+¯<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glow Me | Beauty & Cosmetics</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #e9789c;
+    --dark-pink: #c94f78;
+    --light-pink: #fff0f5;
+    --cream: #fffafa;
+    --text: #35232b;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+}
+
+.topbar {
+    background: #f8dce6;
+    text-align: center;
+    padding: 10px;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+header {
+    background: white;
+    padding: 20px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #f4e5eb;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 30px;
+    color: var(--dark-pink);
+    font-family: Georgia, serif;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #e9a0b7;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--pink);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.search {
+    width: 190px;
+    padding: 11px;
+    border: 1px solid #f0d5df;
+    border-radius: 25px;
+    outline: none;
+}
+
+.cart-btn {
+    border: none;
+    background: var(--light-pink);
+    padding: 12px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    color: var(--dark-pink);
+    font-weight: bold;
+}
+
+.hero {
+    min-height: 480px;
+    background: linear-gradient(90deg,
+        rgba(255,238,245,.97),
+        rgba(255,238,245,.68)),
+        url("https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1600");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding: 60px 9%;
+}
+
+.hero-content {
+    max-width: 520px;
+}
+
+.hero small {
+    color: var(--dark-pink);
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(42px, 6vw, 68px);
+    margin: 20px 0;
+    line-height: 1.1;
+}
+
+.hero h1 span {
+    color: var(--dark-pink);
+}
+
+.hero p {
+    color: #715963;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.primary-btn {
+    background: var(--dark-pink);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 14px 27px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: .2s;
+}
+
+.primary-btn:hover {
+    background: #a93c63;
+    transform: translateY(-2px);
+}
+
+.section {
+    padding: 65px 6%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    font-family: Georgia, serif;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.section-heading p {
+    color: #947984;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.category {
+    background: var(--light-pink);
+    text-align: center;
+    padding: 28px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: .2s;
+}
+
+.category:hover {
+    border-color: var(--pink);
+    transform: translateY(-4px);
+}
+
+.category .emoji {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.category h3 {
+    font-size: 16px;
+}
+
+.shop-section {
+    background: white;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    background: white;
+    border: 1px solid #f0cbd9;
+    border-radius: 25px;
+    cursor: pointer;
+    color: #795c68;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--dark-pink);
+    color: white;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 23px;
+}
+
+.product {
+    border: 1px solid #f4e8ed;
+    border-radius: 14px;
+    overflow: hidden;
+    background: white;
+    transition: .25s;
+    position: relative;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px #e9cbd6;
+}
+
+.product-img {
+    height: 220px;
+    background: #fff0f5;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.product:hover img {
+    transform: scale(1.06);
+}
+
+.wish-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 19px;
+}
+
+.wish-btn.active {
+    color: #e74778;
+}
+
+.product-info {
+    padding: 17px;
+}
+
+.product-info h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.product-info p {
+    font-size: 13px;
+    color: #9b818b;
+    margin-bottom: 12px;
+}
+
+.price {
+    color: var(--dark-pink);
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 14px;
+}
+
+.old-price {
+    color: #aaa;
+    text-decoration: line-through;
+    font-size: 13px;
+    margin-left: 6px;
+}
+
+.add-btn {
+    width: 100%;
+    padding: 11px;
+    border: none;
+    background: var(--light-pink);
+    color: var(--dark-pink);
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.add-btn:hover {
+    background: var(--dark-pink);
+    color: white;
+}
+
+.offer {
+    margin: 35px 6%;
+    background: #f9dce7;
+    padding: 45px 20px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.offer h2 {
+    font-family: Georgia, serif;
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.offer p {
+    margin-bottom: 20px;
+}
+
+.newsletter {
+    text-align: center;
+    padding: 55px 20px;
+    background: #fff0f5;
+}
+
+.newsletter h2 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.newsletter input {
+    margin-top: 20px;
+    padding: 13px;
+    width: 250px;
+    border: 1px solid #edc6d5;
+    border-radius: 25px;
+    outline: none;
+}
+
+.newsletter button {
+    margin-left: 5px;
+}
+
+footer {
+    background: #3e2632;
+    color: white;
+    padding: 40px 6%;
+    text-align: center;
+}
+
+footer h2 {
+    font-family: Georgia, serif;
+    color: #f2a8c0;
+    margin-bottom: 12px;
+}
+
+footer p {
+    color: #e9cbd6;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+/* CART DRAWER */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: #0007;
+    z-index: 20;
+    display: none;
+}
+
+.overlay.show {
+    display: block;
+}
+
+.cart-panel {
+    position: fixed;
+    top: 0;
+    right: -420px;
+    width: min(400px, 100%);
+    height: 100%;
+    background: white;
+    z-index: 21;
+    padding: 25px;
+    transition: .3s;
+    overflow-y: auto;
+}
+
+.cart-panel.show {
+    right: 0;
+}
+
+.cart-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.close-btn {
+    border: none;
+    background: var(--light-pink);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.cart-item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 14px 0;
+}
+
+.cart-item img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-info p {
+    color: var(--dark-pink);
+    margin-top: 6px;
+}
+
+.remove-btn {
+    border: none;
+    color: #c44;
+    background: transparent;
+    cursor: pointer;
+}
+
+.cart-total {
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.empty {
+    text-align: center;
+    padding: 30px 5px;
+    color: #987986;
+}
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3e2632;
+    color: white;
+    padding: 13px 24px;
+    border-radius: 25px;
+    display: none;
+    z-index: 40;
+}
+
+.toast.show {
+    display: block;
+}
+
+@media(max-width: 900px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    header {
+        justify-content: center;
+    }
+    nav {
+        justify-content: center;
+    }
+    .header-actions {
+        width: 100%;
+        justify-content: center;
+    }
+    .search {
+        flex: 1;
+        min-width: 100px;
+    }
+    .hero {
+        min-height: 400px;
+        padding: 40px 7%;
+    }
+    .section {
+        padding: 45px 5%;
+    }
+    .products {
+        gap: 12px;
+    }
+    .product-img {
+        height: 160px;
+    }
+    .product-info {
+        padding: 12px;
+    }
+    .product-info h3 {
+        font-size: 14px;
+    }
+    .offer h2 {
+        font-size: 27px;
+    }
+}
+#signupBtn,
+#signinBtn {
+    width: 100%;
+    padding: 13px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(231, 84, 128, 0.2);
+}
+
+#signupBtn {
+    background: linear-gradient(135deg, #ff9fbd, #e75480);
+    color: white;
+}
+
+#signinBtn {
+    background: white;
+    color: #e75480;
+    border: 2px solid #e75480;
+}
+
+#signupBtn:hover,
+#signinBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(231, 84, 128, 0.3);
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+    ✨ FREE SHIPPING ON ORDERS ABOVE ₹999 ✨
+</div>
+
+<header>
+    <div class="logo">Glow <span>Me.</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#shop">Shop</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+        <input class="search" id="search"
+        placeholder="Search beauty..."
+        oninput="renderProducts()">
+
+        <button class="cart-btn" onclick="openCart()">
+            🛍️ Cart (<span id="cartCount">0</span>)
+        </button>
+    </div>
+<button id="loginBtn" onclick="document.getElementById('authModal').style.display='flex'">
+  Login / Sign Up
+</button>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <small>WELCOME TO GLOW ME</small>
+        <h1>Beauty begins with <span>you.</span></h1>
+        <p>
+            Discover your natural glow with our
+            beautiful collection of skincare,
+            makeup and beauty essentials.
+        </p>
+        <button class="primary-btn"
+        onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+            SHOP NOW →
+        </button>
+    </div>
+</section>
+
+<section class="section" id="categories">
+    <div class="section-heading">
+        <h2>Shop By Category</h2>
+        <p>Everything you need to feel beautiful.</p>
+    </div>
+
+    <div class="categories">
+        <div class="category" onclick="setCategory('Skincare')">
+            <div class="emoji">🧴</div>
+            <h3>Skincare</h3>
+        </div>
+
+        <div class="category" onclick="setCategory('Makeup')">
+            <div class="emoji">💄</div>
+            <h3>Makeup</h3>
+        </div>
+
+        <div class="category" onclick="setCategory('Perfume')">
+            <div class="emoji">🌸</div>
+            <h3>Perfumes</h3>
+        </div>
+
+        <div class="category" onclick="setCategory('Haircare')">
+            <div class="emoji">✨</div>
+            <h3>Haircare</h3>
+        </div>
+    </div>
+</section>
+
+<section class="section shop-section" id="shop">
+    <div class="section-heading">
+        <h2>Our Best Sellers</h2>
+        <p>Find your new beauty favourites.</p>
+    </div>
+
+    <div class="filters">
+        <button class="filter-btn active"
+        onclick="setCategory('All',this)">All</button>
+
+        <button class="filter-btn"
+        onclick="setCategory('Skincare',this)">Skincare</button>
+
+        <button class="filter-btn"
+        onclick="setCategory('Makeup',this)">Makeup</button>
+
+        <button class="filter-btn"
+        onclick="setCategory('Perfume',this)">Perfume</button>
+
+        <button class="filter-btn"
+        onclick="setCategory('Haircare',this)">Haircare</button>
+    </div>
+
+    <div class="products" id="products"></div>
+</section>
+
+<section class="offer">
+    <h2>A Little More Glow ✨</h2>
+    <p>Get 20% OFF on your first order.</p>
+    <button class="primary-btn"
+    onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+        EXPLORE NOW
+    </button>
+</section>
+
+<section class="newsletter" id="contact">
+    <h2>Stay in the Glow!</h2>
+    <p>Subscribe for beauty tips and special offers.</p>
+
+    <form onsubmit="subscribe(event)">
+        <input type="email" id="email"
+        placeholder="Enter your email" required>
+        <button class="primary-btn" type="submit">
+            Subscribe
+        </button>
+    </form>
+</section>
+
+<footer>
+    <h2>Glow Me.</h2>
+    <p>Your beauty, your confidence, your glow.</p>
+    <p>© 2026 Glow Me. All Rights Reserved.</p>
+    <p>Instagram | Facebook | Pinterest</p>
+</footer>
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<div class="cart-panel" id="cartPanel">
+    <div class="cart-head">
+        <h2>My Shopping Bag 🛍️</h2>
+        <button class="close-btn" onclick="closeCart()">✕</button>
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-total" id="cartTotal">
+        Total: ₹0
+    </div>
+
+    <button class="primary-btn"
+    style="width:100%;margin-top:20px"
+    onclick="checkout()">
+        PROCEED TO CHECKOUT
+    </button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+const products = [
+    {
+        id: 1,
+        name: "Rose Glow Serum",
+        category: "Skincare",
+        price: 499,
+        old: 699,
+        image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600"
+    },
+    {
+        id: 2,
+        name: "Hydrating Face Cream",
+        category: "Skincare",
+        price: 599,
+        old: 799,
+        image: "https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=600"
+    },
+    {
+        id: 3,
+        name: "Pink Matte Lipstick",
+        category: "Makeup",
+        price: 399,
+        old: 549,
+        image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=600"
+    },
+    {
+        id: 4,
+        name: "Luxury Perfume",
+        category: "Perfume",
+        price: 899,
+        old: 1199,
+        image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=600"
+    },
+    {
+        id: 5,
+        name: "Face Cleanser",
+        category: "Skincare",
+        price: 349,
+        old: 499,
+        image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600"
+    },
+    {
+        id: 6,
+        name: "Beauty Foundation",
+        category: "Makeup",
+        price: 699,
+        old: 899,
+        image: "https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?w=600"
+    },
+    {
+        id: 7,
+        name: "Hair Care Oil",
+        category: "Haircare",
+        price: 299,
+        old: 399,
+        image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600"
+    },
+    {
+        id: 8,
+        name: "Soft Body Lotion",
+        category: "Skincare",
+        price: 449,
+        old: 599,
+        image: "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=600"
+    }
+];
+
+let cart = JSON.parse(localStorage.getItem("glowCart") || "[]");
+let wishlist = JSON.parse(localStorage.getItem("glowWishlist") || "[]");
+let currentCategory = "All";
+
+function renderProducts() {
+    const search = document.getElementById("search").value.toLowerCase();
+
+    const filtered = products.filter(p =>
+        (currentCategory === "All" || p.category === currentCategory) &&
+        p.name.toLowerCase().includes(search)
+    );
+
+    document.getElementById("products").innerHTML =
+        filtered.length ? filtered.map(p => `
+        <div class="product">
+            <div class="product-img">
+                <img src="${p.image}" alt="${p.name}"
+                onerror="this.style.display='none'">
+                <button class="wish-btn ${wishlist.includes(p.id) ? 'active' : ''}"
+                onclick="toggleWish(${p.id})">
+                    ${wishlist.includes(p.id) ? '♥' : '♡'}
+                </button>
+            </div>
+
+            <div class="product-info">
+                <h3>${p.name}</h3>
+                <p>${p.category}</p>
+                <div class="price">
+                    ₹${p.price}
+                    <span class="old-price">₹${p.old}</span>
+                </div>
+                <button class="add-btn"
+                onclick="addCart(${p.id})">
+                    + ADD TO CART
+                </button>
+            </div>
+        </div>
+        `).join("") :
+        "<p>No products found. Try another search.</p>";
+}
+
+function setCategory(category, button) {
+    currentCategory = category;
+
+    document.querySelectorAll(".filter-btn").forEach(btn =>
+        btn.classList.remove("active")
+    );
+
+    if (button) {
+        button.classList.add("active");
+    } else {
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+            if (btn.textContent.trim() === category) {
+                btn.classList.add("active");
+            }
+        });
+    }
+
+    document.getElementById("search").value = "";
+    renderProducts();
+
+    document.getElementById("shop").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function saveCart() {
+    localStorage.setItem("glowCart", JSON.stringify(cart));
+    updateCart();
+}
+
+function addCart(id) {
+    const item = cart.find(p => p.id === id);
+
+    if (item) {
+        item.qty++;
+    } else {
+        cart.push({id: id, qty: 1});
+    }
+
+    saveCart();
+    showToast("Product added to your bag! 💗");
+}
+
+function removeCart(id) {
+    cart = cart.filter(p => p.id !== id);
+    saveCart();
+}
+
+function updateCart() {
+    const count = cart.reduce((sum, p) => sum + p.qty, 0);
+    document.getElementById("cartCount").innerText = count;
+
+    const container = document.getElementById("cartItems");
+
+    if (cart.length === 0) {
+        container.innerHTML = '<div class="empty">Your bag is empty 🛍️</div>';
+    } else {
+        container.innerHTML = cart.map(item => {
+            const p = products.find(x => x.id === item.id);
+
+            return `
+            <div class="cart-item">
+                <img src="${p.image}" alt="${p.name}">
+                <div class="cart-item-info">
+                    <strong>${p.name}</strong>
+                    <p>₹${p.price} × ${item.qty}</p>
+                    <button onclick="changeQty(${p.id},-1)">−</button>
+                    <span>${item.qty}</span>
+                    <button onclick="changeQty(${p.id},1)">+</button>
+                </div>
+                <button class="remove-btn"
+                onclick="removeCart(${p.id})">Remove</button>
+            </div>
+            `;
+        }).join("");
+    }
+
+    const total = cart.reduce((sum, item) => {
+        const p = products.find(x => x.id === item.id);
+        return sum + p.price * item.qty;
+    }, 0);
+
+    document.getElementById("cartTotal").innerText =
+        "Total: ₹" + total;
+}
+
+function changeQty(id, amount) {
+    const item = cart.find(p => p.id === id);
+
+    if (!item) return;
+
+    item.qty += amount;
+
+    if (item.qty <= 0) {
+        cart = cart.filter(p => p.id !== id);
+    }
+
+    saveCart();
+}
+
+function toggleWish(id) {
+    if (wishlist.includes(id)) {
+        wishlist = wishlist.filter(x => x !== id);
+        showToast("Removed from wishlist");
+    } else {
+        wishlist.push(id);
+        showToast("Added to wishlist ♥");
+    }
+
+    localStorage.setItem("glowWishlist", JSON.stringify(wishlist));
+    renderProducts();
+}
+
+function openCart() {
+    document.getElementById("cartPanel").classList.add("show");
+    document.getElementById("overlay").classList.add("show");
+}
+
+function closeCart() {
+    document.getElementById("cartPanel").classList.remove("show");
+    document.getElementById("overlay").classList.remove("show");
+}
+
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.innerText = message;
+    toast.classList.add("show");
+
+    setTimeout(() => toast.classList.remove("show"), 2200);
+}
+
+function checkout() {
+    if (cart.length === 0) {
+        showToast("Your shopping bag is empty!");
+        return;
+    }
+
+    alert("Thank you for shopping at Glow Me! This is a demo checkout. Online payment is not connected yet.");
+}
+
+function subscribe(event) {
+    event.preventDefault();
+    showToast("Thank you for subscribing! 💗");
+    document.getElementById("email").value = "";
+}
+
+renderProducts();
+updateCart();
+
+</script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyALC79-vZFmR4LT-Ua2oevp4c8uBffnL6A",
+  authDomain: "glow-me-8d702.firebaseapp.com",
+  projectId: "glow-me-8d702",
+  storageBucket: "glow-me-8d702.firebasestorage.app",
+  messagingSenderId: "85453817170",
+  appId: "1:85453817170:web:500097f96c1403e7d3a68b",
+  measurementId: "G-20Z70YWMC3"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+  
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+</script>
+<div id="authModal" style="display:none; position:fixed; inset:0; background:#0008; z-index:9999; justify-content:center; align-items:center;">
+  <div style="background:white; padding:25px; border-radius:15px; width:300px;">
+    <h2>Welcome to Glow Me 💗</h2>
+
+    <input id="authEmail" type="email" placeholder="Email" style="width:100%; padding:10px; margin:8px 0;">
+
+    <input id="authPassword" type="password" placeholder="Password" style="width:100%; padding:10px; margin:8px 0;">
+
+    <button id="signupBtn">Sign Up</button>
+    <button id="signinBtn">Login</button>
+    <button onclick="document.getElementById('authModal').style.display='none'">Close</button>
+
+    <p id="authMessage"></p>
+  </div>
+</div>
+</body>
+</html>
 
